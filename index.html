@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My idol kyla</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --pink: #fbc7d4;
+            --dark-pink: #f8a5b2;
+            --text-color: #5a3e36;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff9fb;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .playfair {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--pink), var(--dark-pink));
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            width: 300px;
+        }
+        
+        .playlist-tabs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .playlist-tab {
+            background: var(--pink);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .playlist-tab.active {
+            background: var(--dark-pink);
+            color: white;
+        }
+        
+        .music-player {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .song-select {
+            border: 1px solid var(--pink);
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            background: white;
+            outline: none;
+        }
+        
+        .music-player button {
+            background: var(--dark-pink);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .polaroid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 20px 20px 40px;
+            box-shadow: var(--shadow);
+            transform: rotate(var(--rotate));
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+        
+        .polaroid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            filter: sepia(0.2);
+        }
+        
+        .polaroid .caption {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+        
+        .love-letter {
+            background: white;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .love-letter::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, var(--pink), var(--dark-pink));
+        }
+        
+        .love-letter h2 {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+        }
+        
+        .stitch-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0;
+            animation: float 8s ease-in-out infinite;
+            color: var(--dark-pink);
+            font-size: 24px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-500px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="playfair">For You</h1>
+        <p>idol kys</p>
+    </header>
+    
+    <div class="polaroid-gallery">
+        <!-- Polaroid 1 -->
+        <div class="polaroid" style="--rotate: -3deg">
+            <img src="867A8026-FBD0-4FDD-BA71-9528630E6E2C.jpeg">
+            <div class="caption">You're so beautiful</div>
+        </div>
+        
+        <!-- Polaroid 2 -->
+        <div class="polaroid" style="--rotate: 2deg">
+            <img src="Messenger_creation_1D512937-2EC4-4BB4-94B7-776819FBB813.jpeg">
+            <div class="caption">You have the cutest smile, it makes myday</div>
+        </div>
+        
+        <!-- Polaroid 3 -->
+        <div class="polaroid" style="--rotate: -5deg">
+            <img src="received_655599912673739.jpeg">
+            <div class="caption">your existence means a lot to me.</div>
+        </div>
+        
+        <!-- Polaroid 4 -->
+        <div class="polaroid" style="--rotate: 4deg">
+            <img src="IMG_20250801_194720.jpg" alt="Couple wearing matching scarves drinking hot chocolate">
+            <div class="caption"> I love everything about you</div>
+        </div>
+        
+        <!-- Polaroid 5 -->
+        <div class="polaroid" style="--rotate: -2deg">
+            <img src="FB_IMG_1744764043460.jpg" alt="Couple cuddling on couch watching movies with popcorn">
+            <div class="caption">I will always be proud of you</div>
+        </div>
+        
+        <!-- Polaroid 6 -->
+        <div class="polaroid" style="--rotate: 5deg">
+            <img src="Messenger_creation_3ecbad2f-f0e6-483d-b1b0-4ca7d4ddd8ec.jpeg">
+            <div class="caption">I love the way you makes me happy even in the most Simplest way</div>
+        </div>
+    </div>
+    
+    <div class="love-letter">
+        <h2 class="playfair">My Letter to You</h2>
+        <p>My idol kys,</p>
+      
+        <p>As long as i'm here you will always have someone who is proud of you in everything you do. whenever you feel unloved, just remember that I am by your side through all the highs and lows. I am here for you, always</p>
+        <p> I'm not handsome just like the other guy but i will sure you that my intentions is pure,gusto ko maging masayaka,iparamdam sayo subra kapa sa subra,mahal kita higit pa sa inaakala mo,I know di ako perfect but trust me,I'll do my best to treat you right.</p>
+        <p>Forever yours,</p>
+        <p class="playfair" style="font-size: 1.8rem; text-align: right;">Ch_ris</p>
+    </div>
+    
+    <div class="music-controls">
+        <div class="playlist-tabs">
+            <button class="playlist-tab active" data-playlist="romantic">Ikaw at Ako</button>
+            <button class="playlist-tab" data-playlist="love">Leaves</button>
+            <button class="playlist-tab" data-playlist="special">Passenger seat</button>
+        </div>
+        <div class="music-player">
+            <button id="playBtn">▶</button>
+            <select id="songSelect" class="song-select">
+                <!-- Songs will be populated by JavaScript -->
+            </select>
+        </div>
+    </div>
+    
+    <script>
+        // Music Player
+        const playBtn = document.getElementById('playBtn');
+        const songSelect = document.getElementById('songSelect');
+        const playlistTabs = document.querySelectorAll('.playlist-tab');
+        let currentAudio = null;
+        let isPlaying = false;
+        
+        const playlists = {
+            romantic: [
+                {name: "Ikaw at Ako", url: "snaptik_7467241266514824455.mp4"},
+                ,
+      
+            ],
+            love: [
+                {name: "Leaves", url: "snaptik_7298719601683188997.mp4"},
+                
+            ],
+            special: [
+                {name: "Passenger seat", url: "snaptik_7333902825132412166.mp4"},
+                
+            ]
+        };
+        
+        function loadPlaylist(playlist) {
+            songSelect.innerHTML = '';
+            playlists[playlist].forEach(song => {
+                const option = document.createElement('option');
+                option.value = song.url;
+                option.textContent = song.name;
+                songSelect.appendChild(option);
+            });
+            
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+                isPlaying = false;
+                playBtn.textContent = '▶';
+            }
+        }
+        
+        function playSelectedSong() {
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+            
+            currentAudio = new Audio(songSelect.value);
+            if (isPlaying) {
+                currentAudio.play();
+                playBtn.textContent = '❚❚';
+            }
+        }
+        
+        playBtn.addEventListener('click', () => {
+            if(isPlaying) {
+                currentAudio.pause();
+                playBtn.textContent = '▶';
+            } else {
+                if (!currentAudio) {
+                    currentAudio = new Audio(songSelect.value);
+                }
+                currentAudio.play();
+                playBtn.textContent = '❚❚';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        songSelect.addEventListener('change', () => {
+            if (isPlaying) {
+                playSelectedSong();
+            }
+        });
+        
+        playlistTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                playlistTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                loadPlaylist(tab.dataset.playlist);
+            });
+        });
+        
+        // Load default playlist
+        loadPlaylist('romantic');
+        
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartSymbols = ['❤️', '💖', '💗', '💓', '💘'];
+            
+            for(let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = `${Math.random() * 90 + 5}%`;
+                heart.style.bottom = `-100px`;
+                heart.style.animationDuration = `${Math.random() * 15 + 10}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // Polaroid animations
+        document.querySelectorAll('.polaroid').forEach(polaroid => {
+            polaroid.addEventListener('mouseenter', () => {
+                polaroid.style.boxShadow = '0 8px 15px rgba(0, 0, 0, 0.2)';
+            });
+            
+            polaroid.addEventListener('mouseleave', () => {
+                polaroid.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        
+        // Initialize everything
+        window.addEventListener('load', () => {
+            createFloatingHearts();
+        });
+    </script>
+</body>
+</html>
